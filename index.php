@@ -1,11 +1,3 @@
-<?php
-session_start();
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,7 +78,6 @@ if(!isset($_SESSION['user'])){
           </div>
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" style="position: relative; height: 1344px;">
-
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="position: absolute; left: 0px; top: 0px;">
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
@@ -94,7 +85,7 @@ if(!isset($_SESSION['user'])){
                   <h5>CRYBABY x Powerpuff Girls</h5>
                   <p>🧺฿380.00</p>
                   <div>
-                    <img src= "assets/img/1.jpg" width="350px">
+                    <img src= "assets/img/1.jpg" width="250px">
                     <a href="assets/img/1.jpg"  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                     
                   </div>
@@ -134,6 +125,51 @@ if(!isset($_SESSION['user'])){
             
           </div><!-- End Portfolio Container -->
    
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books" style="position: absolute; left: 0px; top: 336px;">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                <h5><p class="mt-5">CRYBABY Crying Again Series Figures</p></h5>
+                  <p>🧺฿380.00</p>
+                  <div>
+
+                  <img src= "assets/img/4.png" width="300px">
+                    <a href="assets/img/4.png"  data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="position: absolute; left: 440px; top: 336px;">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                <h5><p class="mt-5">CRYBABY Crying Again Series-Vinyl Face Plush Blind</p></h5>
+                <p>🧺฿690.00</p>
+                  <div>
+                  <img src= "assets/img/5.png" width="260px">
+                  <a href="assets/img/5.png"  data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product" style="position: absolute; left: 880px; top: 336px;">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                <h5><p class="mt-5">CRYBABY Crying Parade Series</p></h5>
+                <p>🧺฿380.00</p>
+                  <div>
+                  <img src= "assets/img/6.png" width="300px">
+                  <a href="assets/img/6.png"  data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
   </footer>
 
   <!-- Scroll Top -->
@@ -153,7 +189,7 @@ if(!isset($_SESSION['user'])){
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  
 </body>
 
 </html>

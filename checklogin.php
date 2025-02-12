@@ -28,12 +28,12 @@ try{
         if($_SESSION['user_type'] ==0){
         echo "<script type='text/javascript'>";
         echo "alert('เข้าสู่ระบบเรียบร้อย');";
-        echo "document.location='admin/dashboard.php';";
+        echo "document.location='admin/index.php';";
         echo "</script>";
         }else{
         echo "<script type='text/javascript'>";
         echo "alert('เข้าสู่ระบบเรียบร้อย');";
-        echo "document.location='admin/dashboard.php';";
+        echo "document.location='admin/index.php';";
         echo "</script>";
         }
         }else{

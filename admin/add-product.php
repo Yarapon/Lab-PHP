@@ -132,14 +132,43 @@ error_reporting(0);
                   <!-- /.card-header -->
                   <div class="card-body">
 
-                  <form action="add-category-abi.php" method="post" >
-                    
-                       
+                  <form action="edit-users-api.php" method="post" >
+                    <?php $editid = $_GET['id'];
+                        $sql = "SELECT * FROM userdata WHERE id=:eid";
+                        $query = $dbh->prepare($sql);
+                        $query->bindParam(':eid',$editid,PDO::PARAM_STR);
+                        $query->execute();
+                        $results = $query->fetchAll(PDO::FETCH_OBJ);
+
+                        if($query->rowCount() >0){
+                            foreach($results as $row ){
+
+                    ?>
+                        <input type="hidden" name="eid" id="eid" value="<?php echo $editid;?>">
                         <div class="form-group">
-                        <label for="fullname">Category Name:</label>
+                        <label for="fullname">FullName:</label>
                         <input type="text" class="form-control" id="fullname" placeholder="Enter FullName" name="fullname" required value="<?php echo $row->fullname; ?>">
                         </div>
-                        
+                        <div class="form-group">
+                        <label for="username">UserName:</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter UserName" name="username" required value="<?php echo $row->username; ?>">
+                        </div>
+                        <div class="form-group">
+                        <label for="useremail">Email:</label>
+                        <input type="email" class="form-control" id="useremail" placeholder="Enter Email" name="useremail" required value="<?php echo $row->useremail; ?>">
+                        </div>
+                        <div class="form-group">
+                        <label for="usermobile">Mobile:</label>
+                        <input type="text" maxlength="10" pattern="[0-9]{10}" title="ตัวเลขสิบหลักเท่านั้น" class="form-control" id="usermobile" placeholder="Enter Mobile" name="usermobile" required value="<?php echo $row->usermobile; ?>">
+                        </div>
+                        <div class="form-group">
+                        <label for="loginpassword">Password:</label>
+                        <input type="password" class="form-control" id="loginpassword" placeholder="Enter password" name="loginpassword" required value="<?php echo $row->loginpassword; ?>">
+                        </div>
+                <?php        
+                    }
+                }
+                ?>
                         
                         <button type="submit" class="btn btn-success" name="update"signup">Update</button>
                     </form>
