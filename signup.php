@@ -60,7 +60,7 @@ if(isset($_POST['signup'])){
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
     body {
-      background: linear-gradient(135deg, #444b8e 0%, #2a9b8f 100%);
+      background: linear-gradient(135deg,rgb(255, 255, 255) 0%,rgb(0, 0, 0) 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -109,7 +109,7 @@ if(isset($_POST['signup'])){
     }
 
     .btn-success {
-      background-color: #2a9b8f;
+      background-color:rgb(0, 0, 0);
       border: none;
       padding: 12px 30px;
       border-radius: 10px;
@@ -122,7 +122,7 @@ if(isset($_POST['signup'])){
     }
 
     .btn-success:hover {
-      background-color:rgb(255, 255, 255);
+      background-color:rgb(237, 123, 199);
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
     }

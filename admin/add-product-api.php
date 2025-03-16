@@ -27,7 +27,7 @@ if($_SESSION['user_type']==1){
         $query->bindParam(':hasedpassword',$hasedpassword,PDO::PARAM_STR);
         $query->execute();
         echo "<script>alert('User has been updated')</script>";
-        echo "<script>window.location.href='manage_user.php'</script>";
+        echo "<script>window.location.href='manage_product.php'</script>";
        
  
     }

@@ -42,7 +42,7 @@ if(isset($_POST['login'])){
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
     body {
-      background: linear-gradient(135deg, #444b8e 0%, #2a9b8f 100%);
+      background: linear-gradient(135deg,rgb(255, 255, 255) 0%,rgb(0, 0, 0) 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -86,12 +86,12 @@ if(isset($_POST['login'])){
     }
 
     .form-control:focus {
-      border-color: #2a9b8f;
+      border-color:rgb(0, 0, 0);
       box-shadow: 0 0 0 0.2rem rgba(42, 155, 143, 0.25);
     }
 
     .btn-success {
-      background-color: #2a9b8f;
+      background-color:rgb(0, 0, 0);
       border: none;
       padding: 12px 30px;
       border-radius: 10px;
@@ -104,7 +104,7 @@ if(isset($_POST['login'])){
     }
 
     .btn-success:hover {
-      background-color: #248277;
+      background-color:rgb(237, 123, 199);
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(42, 155, 143, 0.3);
     }
