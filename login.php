@@ -6,7 +6,8 @@ ini_set('display_errors', 1);
 
 if(isset($_POST['login'])){
     if(empty($_POST['user_name']) || empty($_POST['login_password'])) {
-        echo "<script>alert('เข้าสู่ระบบเรียบร้อยแล้ว'); window.location='index.php';</script>";
+        echo "<script>alert('เข้าสู่ระบบสำเร็จ!'); window.location='index.php';</script>";
+        echo "<script>alert('เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ Admin'); window.location='admin/manage_user.php';</script>";
         exit();
     }
 
@@ -22,8 +23,21 @@ if(isset($_POST['login'])){
     $query->execute();
 
     $result = $query->fetch(PDO::FETCH_ASSOC);
-    
+
+    if($result) {
+        $_SESSION['user'] = $result['username']; // เก็บชื่อผู้ใช้ใน session
+        if($result['username'] === 'admin') {
+            echo "<script>alert('เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ Admin'); window.location='admin.php';</script>";
+        } else {
+            echo "<script>alert('เข้าสู่ระบบสำเร็จ!'); window.location='index.php';</script>";
+        }
+        exit();
+    } else {
+        echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'); window.location='index.php';</script>";
+        exit();
+    }
 }
+
 ?>
 
 
