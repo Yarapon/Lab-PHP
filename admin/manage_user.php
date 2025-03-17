@@ -40,7 +40,7 @@ if(isset($_POST['addUser'])) {
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>จัดการผู้ใช้งาน | Admin Panel</title>
+    <title>จัดการผู้ใช้งาน | MOMO Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="จัดการผู้ใช้งาน | Admin Panel" />
     <meta name="author" content="ColorlibHQ" />
@@ -96,7 +96,7 @@ if(isset($_POST['addUser'])) {
             <div class="sidebar-brand">
                 <a href="dashboard.php" class="brand-link">
                     <img src="./assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
-                    <span class="brand-text fw-light">Admin Panel</span>
+                    <span class="brand-text fw-light">MOMO shop</span>
                 </a>
             </div>
             <?php include("include/sidebar.php"); ?>

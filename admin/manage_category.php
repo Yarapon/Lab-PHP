@@ -29,14 +29,20 @@ if(isset($_POST['addCategory'])) {
 }
 
 // Update category
-// ตรวจสอบว่า 'id' ถูกส่งมาใน URL หรือไม่
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM category WHERE id = :id";
+if(isset($_POST['updateCategory'])) {
+    $cat_id = $_POST['cat_id'];
+    $cat_name = $_POST['cat_name'];
+
+    $sql = "UPDATE category SET cat_name=:cat_name WHERE cat_id=:cat_id";
     $query = $dbh->prepare($sql);
-    $query->bindParam(':id', $id, PDO::PARAM_INT);
-    $query->execute();
-    $result = $query->fetch(PDO::FETCH_ASSOC); // ดึงข้อมูลเป็นแบบ associative array
+    $query->bindParam(':cat_name', $cat_name, PDO::PARAM_STR);
+    $query->bindParam(':cat_id', $cat_id, PDO::PARAM_INT);
+
+    if ($query->execute()) {
+        echo "<script>alert('อัปเดตประเภทสินค้าสำเร็จ!'); window.location.href='manage_category.php';</script>";
+    } else {
+        echo "<script>alert('เกิดข้อผิดพลาด! กรุณาลองใหม่');</script>";
+    }
 }
 
 
@@ -102,7 +108,7 @@ if (isset($_GET['id'])) {
             <div class="sidebar-brand">
                 <a href="dashboard.php" class="brand-link">
                     <img src="./assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
-                    <span class="brand-text fw-light">Admin Panel</span>
+                    <span class="brand-text fw-light">MOMO Shop</span>
                 </a>
             </div>
             <?php include("include/sidebar.php"); ?>
@@ -179,31 +185,32 @@ if (isset($_GET['id'])) {
                                         </div>
                                     </div>
 
-                                    <!-- Modal แก้ไขประเภทสินค้า -->
-                                    <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="editCategoryModalLabel">แก้ไขประเภทสินค้า</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <form action="" method="POST">
-                                                    <div class="modal-body">
-                                                        <input type="hidden" name="cat_name"id="edit_cat_id" >
-                                                        <div class="mb-3">
-                                                            <label class="form-label">ชื่อประเภทสินค้า</label>
-                                                            <input type="text" id="edit_cat_name" name="cat_name" class="form-control" required>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                                                        <button type="submit" name="updateCategory" class="btn btn-primary">บันทึก</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   <!-- Modal แก้ไขประเภทสินค้า -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCategoryModalLabel">แก้ไขประเภทสินค้า</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="POST">
+                <div class="modal-body">
+                    <!-- เพิ่ม input hidden เพื่อเก็บค่า cat_id -->
+                    <input type="hidden" name="cat_id" id="edit_cat_id">
+                    <div class="mb-3">
+                        <label class="form-label">ชื่อประเภทสินค้า</label>
+                        <input type="text" id="edit_cat_name" name="cat_name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" name="updateCategory" class="btn btn-primary">บันทึก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover category-table">

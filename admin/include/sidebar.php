@@ -29,7 +29,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
+                    <a href="manage_product.php" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>product</p>
                     </a>
